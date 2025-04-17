@@ -14,10 +14,17 @@ def main():
         ]
     
     printBoard(board)
+
+    if solveBoard(board):
+        print("Solved successfully!")
+    else:
+        print("Unsolvable board")
+
+    printBoard(board)
     
 def printBoard(board):
     for i in board:
-       print(i)
+        print(i)
     
 def isNumberInRow(board, number, row):
     for i in range(SIZE):
@@ -35,5 +42,26 @@ def isNumberInBox(board, number, row, column):
     localBoxRow = row - row % 3
     localBoxColumn = column - column % 3
 
-    for
+    for i in range(localBoxRow, localBoxRow + 3):
+        for j in range(localBoxColumn, localBoxColumn + 3):
+            if(board[i][j] == number):
+                return True
+    return False
+
+def isValidPlacement(board, number, row, column):
+    return not isNumberInRow(board, number, row) and not isNumberInColumn(board, number, column) and not isNumberInBox(board, number, row, column)
+
+def solveBoard(board):
+    for i in range(SIZE):
+        for j in range(SIZE):
+            if (board[i][j] == 0):
+                for numberToTry in range(1, SIZE + 1):
+                    if (isValidPlacement(board, numberToTry, i, j)):
+                        board[i][j] = numberToTry
+
+                        if (solveBoard(board) == True):
+                            return True
+                        board[i][j] = 0
+                return False
+    return True
 main()
