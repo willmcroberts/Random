@@ -16,15 +16,16 @@
 
 .heading {
 	width: 100%;
+	height: 60px;
 	background-color: red;
 	overflow: hidden;
 }
 
 .heading a {
 	float: left;
-	color: whitesmoke;
+	color: white;
 	text-align: center;
-	padding: 14px 16px;
+	padding: 20px 18px;
 	text-decoration: none;
 	font-size: 17px;
 }
@@ -39,8 +40,44 @@
 	background-color: rgb(255, 255, 255);
 	padding: 30px;
 	margin: 10px;
+	
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: 1px solid black;
+    width: 75%;
+    height: 75%;
+    padding: 50px;
+
+
 }
 
 h1 {
 	font-size: 48px;
+	padding-left: 50px;
+}
+
+.homeText {
+
+}
+
+.image {
+	outline: 2px solid black;
+	width: 480px;
+	height: 345px;
+	justify-self: right;
+	background-color: rgb(235, 225, 225);
+}
+
+.caption {
+	padding: 3px 10px;
+}
+
+.randomPicture {
+	width: 480px;
+	height: 315px;
 }
